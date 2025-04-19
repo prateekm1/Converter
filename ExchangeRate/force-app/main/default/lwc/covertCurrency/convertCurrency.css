@@ -1,0 +1,8 @@
+.format-file{
+    display: flex;
+    justify-content: center;
+}
+p{
+    align-items: center;
+    background-color: aquamarine;
+}
