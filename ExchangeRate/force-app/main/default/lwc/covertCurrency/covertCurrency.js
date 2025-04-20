@@ -60,6 +60,7 @@ export default class CovertCurrency extends LightningElement {
                 throw new error ('Network response was not OK');
             }
             const data = await response.json();
+            console.log("currency Data ",data.rates);
             this.convertedValue = data.rates[this.toCurrency];
             this.showOutput = true;
         } catch(error){

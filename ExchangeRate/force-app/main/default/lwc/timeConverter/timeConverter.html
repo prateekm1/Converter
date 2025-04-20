@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Time Converter">
+        <div class="slds-var-p-around_medium">
+            <div>
+                <lightning-input
+                    type="datetime-local"
+                    label="Select Date and Time"
+                    name="time"
+                    value={selectedDateTime} onchange={handleChange}>
+                </lightning-input>
+            </div>
+
+            <div class="format-file slds-var-p-around_small">
+               
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-combobox
+                                label="From Time Zone"
+                                name="fromZone"
+                                placeholder="--Select--"
+                                options={formattedZoneOptions} value={selectedFromZone} onchange={handleChange}
+                                required>
+                            </lightning-combobox>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-combobox
+                                label="To Time Zone"
+                                name="toZone"
+                                placeholder="--Select--"
+                                options={formattedZoneOptions} value={selectedToZone} onchange={handleChange}
+                                required>
+                            </lightning-combobox>
+                        </div>
+                    </div>
+               
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-button label="Convert" onclick={handleClick} variant="brand"></lightning-button>
+                </div>
+                <template if:true={output}>
+                <div class="slds-col slds-size_1-of-2">
+                    <p style="background-color: rgb(255, 255, 147);">Converted time is: {convertedTime} {convertedZone}</p>
+                </div>
+            </template>
+                </div>
+    </lightning-card>
+</template>
